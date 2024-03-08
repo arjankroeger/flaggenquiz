@@ -1,0 +1,260 @@
+:root {
+    --background-color-quiz: #F9DAC8; /* Default light mode background color */
+    --text-color-quiz: #6d587440; /* Default light mode text color */
+    --text-color-rest: #B194B3;
+    --background-color-rest: #F5ECCD;
+    --background-color-button: #1B065E;
+}
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color-quiz);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color-rest);
+    color: var(--text-color-rest);
+    height: 5%;
+}
+
+.centered-text {
+    text-align: center;
+    flex-grow: 1; /* This will make sure the text takes up remaining space */
+}
+
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+label {
+    z-index: 10;
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 34px;
+    cursor: pointer;
+    background-color: #F9DAC8;
+    box-shadow: inset 0px 5px 15px rgba(27,6,94,0.33), inset 0px -5px 15px rgba(27, 6, 94, 0.33);
+    cursor: pointer;
+    border-radius: 34px;
+}
+
+
+.darklightmodeToggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+label:after {
+    content: "";
+    width:30px;
+    height: 30px;
+    position: absolute;
+    top:2.5px;
+    left:2.5px;
+    background: linear-gradient(180deg,#ffcc89,#d8860b);
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px rgba(27,6,94,0.2);
+  }
+
+
+input:checked + label {
+    background: #242424;
+}
+input:checked + label:after {
+    left:62.5px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+}
+label, label:after {
+    transition: 0.3s
+}
+
+label:hover:after{ 
+    width: 32px; 
+}
+label:active:after{ 
+    width: 40px; 
+}
+
+label svg{
+    z-index: 11;
+    width: 26px;
+    height: 26px;
+    top:4px;
+    position: absolute;
+}
+
+label svg.sun{
+    stroke: var(--text-color-rest);
+    left: 4.5px;
+    transition: 0.4s;
+}
+label svg.moon{
+    fill: var(--text-color-rest);
+    left: 36px;
+    transition: 0.4s;
+}
+
+.solutionwrong{
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    left: 0; /* Adjust positioning as needed */
+    z-index: 1000;
+    height: 35%;
+    width: 35%;
+    left: 30.25%;
+    top: 10%;
+    transition: visibility 0.5s ease, opacity 0.5s ease;
+    visibility: hidden;
+    opacity: 0; /* Initially set opacity to 0 */
+}
+.solutionwrongshow {
+    visibility: visible;
+    opacity: 1; /* Initially set opacity to 0 */
+}
+
+
+.solutionright{
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    left: 0; /* Adjust positioning as needed */
+    z-index: 1000;
+    height: 95%;
+    width: 100%;
+    left: 0;
+    top: 7%;
+    visibility: hidden;
+}
+
+
+canvas#confetti {
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0px;
+left: 0px;
+z-index: 1100;
+pointer-events: none;
+}
+
+
+
+.quiz-board {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 20px;
+    position: relative; /* Ensure the container is positioned relatively */
+    background-color: var(--background-color-quiz);
+}
+
+
+.flag {
+    position: relative;
+    text-align: center;
+}
+
+.sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-color-quiz);
+
+} 
+
+.flag-container {
+    position: relative;
+    display: inline-block;
+    justify-content: space-between; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    width: 45%;
+}
+
+.flag img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.flag img.darken {
+    filter: brightness(0.5); /* Adjust the brightness value to darken the image */
+}
+
+.flag input {
+    color: var(--background-color-quiz);
+    font-size: 22px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: var(--text-color-quiz) ;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.thick-line {
+border: none;
+height: 5px;
+background-color: var(--text-color-quiz);
+margin: 0 auto;
+width: 90%;
+
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-rest);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 5%;
+}
+
+.wide-button {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: var(--background-color-button);
+    color: var(--text-color-rest);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .wide-button {
+        width: 100%;
+    }
+}
+
