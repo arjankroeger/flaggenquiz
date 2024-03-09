@@ -2,10 +2,12 @@ function changeBrightness(input, image) {
     if(input.value.length >=1)
     {
         image.classList.add("darken");
+        input.classList.add("big")
     }
     else
     {
-       image.classList.remove("darken") 
+       image.classList.remove("darken");
+       input.classList.remove("big")
     }
 }
 

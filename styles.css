@@ -202,7 +202,7 @@ pointer-events: none;
 
 .flag input {
     color: var(--background-color-quiz);
-    font-size: 22px;
+    font-size: 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -214,6 +214,10 @@ pointer-events: none;
     font-weight: bold;
 }
 
+.flag input.big{
+ font-size: 22px;   
+}
+
 
 .thick-line {
 border: none;
@@ -223,6 +227,8 @@ margin: 0 auto;
 width: 70%;
 
 }
+
+
 
 .footer {
     bottom: 0;
