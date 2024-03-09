@@ -226,7 +226,7 @@ width: 70%;
 
 .footer {
     bottom: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
