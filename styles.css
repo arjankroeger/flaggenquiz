@@ -160,12 +160,9 @@ pointer-events: none;
 
 
 .quiz-board {
-    flex: 1;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    grid-template-columns: 30% 2.5% 30% 2.5% 30%;
     padding: 20px;
-    position: relative; /* Ensure the container is positioned relatively */
     background-color: var(--background-color-quiz);
 }
 
@@ -223,7 +220,7 @@ border: none;
 height: 5px;
 background-color: var(--text-color-quiz);
 margin: 0 auto;
-width: 90%;
+width: 70%;
 
 }
 
